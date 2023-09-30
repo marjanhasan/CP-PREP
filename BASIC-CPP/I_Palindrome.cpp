@@ -1,5 +1,5 @@
 // first way (two pointers technique)
-/* #include <bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 int main()
 {
@@ -20,10 +20,10 @@ int main()
     !flag ? cout << "YES" : cout << "NO";
 
     return 0;
-} */
+}
 
 /*
-//another way
+// 2nd way
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -31,16 +31,21 @@ int main()
 {
     string s;
     cin >> s;
-    string sw;
-    for (int i = s.size() - 1; i >= 0; i--)
-        sw += s[i];
+    // first way
+    string sw = s;
+    reverse(sw.begin(), sw.end());
     s == sw ? cout << "YES" : cout << "NO";
+
+    // another way
+    // string sw = s;
+    // for (int i = s.size() - 1; i >= 0; i--)
+    //     sw += s[i];
+    // s == sw ? cout << "YES" : cout << "NO";
     return 0;
-}
- */
+} */
 
 /*
-// another way
+// 3rd way
 
 #include <bits/stdc++.h>
 using namespace std;
