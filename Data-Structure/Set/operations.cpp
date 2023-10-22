@@ -17,6 +17,14 @@ int main()
     }
     for (auto it = s.begin(); it != s.end(); it++)
         cout << *it << " ";
-    s.count(10) ? cout << "YES" << endl : cout << "NO" << endl; // O(logN)
+    cout << endl;
+    if (s.count(10))
+        cout << "YES" << endl;
+    else
+        cout << "NO" << endl;
+    if (s.find(1) != s.end())
+        cout << "YES\n";
+    else
+        cout << "NO\n";
     return 0;
 }
