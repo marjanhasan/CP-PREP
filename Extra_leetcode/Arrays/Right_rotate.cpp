@@ -35,3 +35,8 @@ int main()
         cout << a << " ";
     return 0;
 }
+/*
+1) 0 to n-1 porjonto reverse krbo
+2) 0 t0 k-1 porjonto reverse krbo
+3) k to n-1 porjonto reverse krbo
+*/

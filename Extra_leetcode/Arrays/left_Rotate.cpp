@@ -23,6 +23,9 @@ int main()
     return 0;
 }
 /*
+1) 0 to d-1 porjonto reverse krbo
+2) d to n-1 porjonto reverse krbo
+3) 0 to n-1 porjonto reverse krbo
 //{ Driver Code Starts
 #include<bits/stdc++.h>
 using namespace std;
