@@ -46,7 +46,7 @@ public:
             return findMissingUtil(arr, 0, n - 1, diff);
         } */
 
-        int findMissing(int arr[], int n)
+    int findMissing(int arr[], int n)
     {
         // code here
         int dif = (arr[n - 1] - arr[0]) / n;
@@ -55,6 +55,45 @@ public:
             int sol = arr[i + 1] - arr[i];
             if (sol != dif)
                 return arr[i] + dif;
+        }
+
+        // another way
+        int d = (arr[n - 1] - arr[0]) / n;
+
+        int s = 0, e = n - 1;
+
+        while (s <= e)
+        {
+
+            int mid = (s + e) / 2;
+
+            if (arr[mid] - arr[mid - 1] != d)
+
+            {
+
+                return arr[mid - 1] + d;
+            }
+
+            if (arr[mid + 1] - arr[mid] != d)
+
+            {
+
+                return arr[mid] + d;
+            }
+
+            if (mid > 0 & (arr[mid] - arr[0]) != mid * d)
+            {
+
+                e = mid - 1;
+            }
+
+            else
+            {
+
+                s = mid + 1;
+            }
+
+            return -1;
         }
     }
 };
