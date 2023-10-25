@@ -48,7 +48,7 @@ public:
 
     int findMissing(int arr[], int n)
     {
-        // code here
+        // code here first way O(N)
         int dif = (arr[n - 1] - arr[0]) / n;
         for (int i = 0; i < n - 1; i++)
         {
@@ -57,43 +57,21 @@ public:
                 return arr[i] + dif;
         }
 
-        // another way
+        // ******another way O(logN)
         int d = (arr[n - 1] - arr[0]) / n;
-
-        int s = 0, e = n - 1;
-
-        while (s <= e)
+        int l = 0, r = n - 1;
+        while (l <= r)
         {
-
-            int mid = (s + e) / 2;
-
-            if (arr[mid] - arr[mid - 1] != d)
-
-            {
-
-                return arr[mid - 1] + d;
-            }
-
+            int mid = (l + r) / 2;
             if (arr[mid + 1] - arr[mid] != d)
-
-            {
-
                 return arr[mid] + d;
-            }
+            if (arr[mid] - arr[mid - 1] != d)
+                return arr[mid - 1] + d;
 
-            if (mid > 0 & (arr[mid] - arr[0]) != mid * d)
-            {
-
-                e = mid - 1;
-            }
-
+            if (mid > 0 && arr[mid] - arr[0] != mid * d)
+                r = mid - 1;
             else
-            {
-
-                s = mid + 1;
-            }
-
-            return -1;
+                l = mid + 1;
         }
     }
 };
