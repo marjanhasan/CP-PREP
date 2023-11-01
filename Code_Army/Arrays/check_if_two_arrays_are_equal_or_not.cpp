@@ -17,7 +17,7 @@ public:
         // code here
         /*
         brute force approach
-        // Time complexity O(NlogN)
+        // ***************************Time complexity O(NlogN)
         sort(A.begin(), A.end());
         sort(B.begin(), B.end());
         for (int i = 0; i < N; i++)
@@ -27,32 +27,17 @@ public:
         }
         return 1; */
 
-        // Time complexity O(N)
-        // using a map to store frequency of elements.
+        //**************************** Time complexity O(N)
         unordered_map<ll, ll> mp;
-
-        // incrementing frequencies of elements present in first array in the map.
-        for (ll i = 0; i < N; i++)
+        for (int i = 0; i < A.size(); i++)
             mp[A[i]]++;
-
-        // decrementing frequencies of elements present in second array in the map.
-        for (long long i = 0; i < N; i++)
+        for (int i = 0; i < B.size(); i++)
             mp[B[i]]--;
-
-        // iterating over the map.
         for (auto i = mp.begin(); i != mp.end(); i++)
         {
-
-            // if frequency of any element in map now is not zero it means that its
-            // count in two arrays was not equal so the arrays are not equal.
             if (i->second != 0)
-            {
-
-                // returning false since arrays are not equal.
                 return false;
-            }
         }
-        // returning true if arrays are equal.
         return true;
     }
 };
