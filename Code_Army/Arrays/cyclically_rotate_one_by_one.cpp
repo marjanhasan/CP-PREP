@@ -28,21 +28,23 @@ int main()
 
 // User function Template for C++
 
-/*
-// first way
 void rotate(int arr[], int n)
 {
+    // o(N)
+    // reverse(arr,arr+n);
+    // reverse(arr+1,arr+n);
+
+    // o(N)
+    // for(int i=n-1;i>0;i--)
+    // {
+    //     swap(arr[i],arr[i-1]);
+    // }
+
+    // o(N)
     int tmp = arr[n - 1];
-    for (int i = n - 2; i >= 0; i--)
+    for (int i = n - 1; i > 0; i--)
     {
-        swap(arr[i], arr[i + 1]);
+        arr[i] = arr[i - 1];
     }
     arr[0] = tmp;
-} */
-
-// second way
-void rotate(int arr[], int n)
-{
-    reverse(arr, arr + n);
-    reverse(arr + 1, arr + n);
 }
