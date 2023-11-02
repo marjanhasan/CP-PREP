@@ -25,17 +25,27 @@ int main()
 int missingNumber(int A[], int N)
 {
     // Your code goes here
-    int pre[N + 1] = {0};
+    // first approach
+    int sum = 0;
     for (int i = 0; i < N - 1; i++)
-    {
-        int val = A[i];
-        pre[val]++;
-    }
-    for (int i = 1; i < N + 1; i++)
-    {
-        if (pre[i] == 0)
+        sum += A[i];
+    int res = N * (N + 1) / 2;
+    return res - sum;
+
+    /*
+        // second appraoch
+        //**********o(n)
+        int pre[N + 1] = {0};
+        for (int i = 0; i < N - 1; i++)
         {
-            return i;
+            int val = A[i];
+            pre[val]++;
         }
-    }
+        for (int i = 1; i < N + 1; i++)
+        {
+            if (pre[i] == 0)
+            {
+                return i;
+            }
+        } */
 }
