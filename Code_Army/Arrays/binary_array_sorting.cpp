@@ -18,21 +18,27 @@ public:
         /**************
          * No need to print the array
          * ************/
-        int arr[N], j = 0;
+        int j = 0;
         for (int i = 0; i < N; i++)
         {
             if (A[i] == 0)
-                arr[j++] = A[i];
+                swap(A[i], A[j++]);
         }
-        for (int i = 0; i < N; i++)
-        {
-            if (A[i] == 1)
-                arr[j++] = A[i];
-        }
-        for (int i = 0; i < N; i++)
-        {
-            A[i] = arr[i];
-        }
+        // int arr[N], j = 0;
+        // for (int i = 0; i < N; i++)
+        // {
+        //     if (A[i] == 0)
+        //         arr[j++] = A[i];
+        // }
+        // for (int i = 0; i < N; i++)
+        // {
+        //     if (A[i] == 1)
+        //         arr[j++] = A[i];
+        // }
+        // for (int i = 0; i < N; i++)
+        // {
+        //     A[i] = arr[i];
+        // }
     }
 };
 
