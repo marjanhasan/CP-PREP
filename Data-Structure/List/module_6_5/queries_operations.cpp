@@ -11,7 +11,6 @@ public:
         this->next = NULL;
     }
 };
-bool flag = false;
 void insert_tail(Node *&head, int val)
 {
     Node *newNode = new Node(val);
@@ -40,12 +39,6 @@ void insert_pos(Node *&head, int pos, int val)
     for (int i = 1; i <= pos - 1; i++)
     {
         tmp = tmp->next;
-        if (tmp == NULL)
-        {
-            cout << "Invalid\n";
-            flag = true;
-            return;
-        }
     }
     newNode->next = tmp->next;
     tmp->next = newNode;
@@ -59,6 +52,17 @@ void print_list(Node *head)
         tmp = tmp->next;
     }
     cout << endl;
+}
+int size(Node *head)
+{
+    Node *tmp = head;
+    int cnt = 0;
+    while (tmp != NULL)
+    {
+        cnt++;
+        tmp = tmp->next;
+    }
+    return cnt;
 }
 int main()
 {
@@ -77,10 +81,13 @@ int main()
     {
         int i, v;
         cin >> i >> v;
-        flag = false;
-        insert_pos(head, i, v);
-        if (!flag)
+        if (i > size(head))
         {
+            cout << "Invalid\n";
+        }
+        else
+        {
+            insert_pos(head, i, v);
             print_list(head);
         }
     }
