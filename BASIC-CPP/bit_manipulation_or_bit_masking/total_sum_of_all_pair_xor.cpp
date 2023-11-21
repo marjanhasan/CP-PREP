@@ -14,6 +14,12 @@ int main()
     }
 
     int ans = 0;
+    // o(N^2) solution
+    // for (int i = 0; i < n - 1; i++)
+    // {
+    //     for (int j = i + 1; j < n; j++)
+    //         ans += (ar[i] ^ ar[j]);
+    // }
 
     // Iterate through each bit position (0 to 30, since int is 32 bits)
     for (int i = 0; i < 31; i++)
