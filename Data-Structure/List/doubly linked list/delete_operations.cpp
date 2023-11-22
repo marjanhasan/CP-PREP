@@ -13,7 +13,7 @@ public:
         this->prev = NULL;
     }
 };
-void left(Node *head)
+void print_normal(Node *head)
 {
     Node *tmp = head;
     while (tmp != NULL)
@@ -23,7 +23,7 @@ void left(Node *head)
     }
     cout << endl;
 }
-void right(Node *tail)
+void print_reverse(Node *tail)
 {
     Node *tmp = tail;
     while (tmp != NULL)
@@ -44,43 +44,29 @@ int size(Node *head)
     }
     return cnt;
 }
-void insert(Node *head, int pos, int val)
+void delete_pos(Node *head, int pos)
 {
-    Node *newNode = new Node(val);
     Node *tmp = head;
     for (int i = 1; i <= pos - 1; i++)
         tmp = tmp->next;
-    newNode->next = tmp->next;
-    tmp->next = newNode;
-
-    newNode->next->prev = newNode;
-    newNode->prev = tmp;
+    Node *deleteNode = tmp->next;
+    tmp->next = tmp->next->next;
+    tmp->next->prev = tmp;
+    delete deleteNode;
 }
-void insert_head(Node *&head, Node *&tail, int val)
+void delete_tail(Node *&tail)
 {
-    Node *newNode = new Node(val);
-    if (head == NULL)
-    {
-        head = newNode;
-        tail = newNode;
-        return;
-    }
-    newNode->next = head;
-    head->prev = newNode;
-    head = newNode;
+    Node *deleteNode = tail;
+    tail = tail->prev;
+    tail->next = NULL;
+    delete deleteNode;
 }
-void insert_tail(Node *&head, Node *&tail, int val)
+void delete_head(Node *&head)
 {
-    Node *newNode = new Node(val);
-    if (tail == NULL)
-    {
-        head = newNode;
-        tail = newNode;
-        return;
-    }
-    tail->next = newNode;
-    newNode->prev = tail;
-    tail = newNode;
+    Node *deleteNode = head;
+    head = head->next;
+    head->prev = NULL;
+    delete deleteNode;
 }
 int main()
 {
@@ -100,17 +86,17 @@ int main()
 
     c->prev = b;
 
-    int pos, val;
-    cin >> pos >> val;
-    if (pos > size(head))
+    int pos;
+    cin >> pos;
+    if (pos >= size(head))
         cout << "Invalid\n";
     else if (pos == 0)
-        insert_head(head, tail, val);
-    else if (pos == size(head))
-        insert_tail(head, tail, val);
+        delete_head(head);
+    else if (pos == size(head) - 1)
+        delete_tail(tail);
     else
-        insert(head, pos, val);
-    left(head);
-    right(tail);
+        delete_pos(head, pos);
+    print_normal(head);
+    print_reverse(tail);
     return 0;
 }
