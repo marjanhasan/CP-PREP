@@ -54,19 +54,29 @@ void delete_pos(Node *head, int pos)
     tmp->next->prev = tmp;
     delete deleteNode;
 }
-void delete_tail(Node *&tail)
+void delete_tail(Node *&head, Node *&tail)
 {
     Node *deleteNode = tail;
     tail = tail->prev;
-    tail->next = NULL;
     delete deleteNode;
+    if (tail == NULL)
+    {
+        head = NULL;
+        return;
+    }
+    tail->next = NULL;
 }
-void delete_head(Node *&head)
+void delete_head(Node *&head, Node *&tail)
 {
     Node *deleteNode = head;
     head = head->next;
-    head->prev = NULL;
     delete deleteNode;
+    if (head == NULL)
+    {
+        tail = NULL;
+        return;
+    }
+    head->prev = NULL;
 }
 int main()
 {
@@ -91,9 +101,9 @@ int main()
     if (pos >= size(head))
         cout << "Invalid\n";
     else if (pos == 0)
-        delete_head(head);
+        delete_head(head, tail);
     else if (pos == size(head) - 1)
-        delete_tail(tail);
+        delete_tail(head, tail);
     else
         delete_pos(head, pos);
     print_normal(head);
