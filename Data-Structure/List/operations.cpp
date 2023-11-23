@@ -16,5 +16,9 @@ int main()
     l.reverse();
     for (int v : l)
         cout << v << " ";
+
+    cout << *next(l.begin(), 2) << endl;
+    cout << l.front() << endl;
+    cout << l.back() << endl;
     return 0;
 }
