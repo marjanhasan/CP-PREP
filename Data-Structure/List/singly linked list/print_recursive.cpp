@@ -23,12 +23,26 @@ void insert_tail(Node *&head, Node *&tail, int val)
     tail->next = newNode;
     tail = newNode;
 }
+// not updating head
 void print_recursive(Node *node)
 {
     if (node == NULL)
         return;
     print_recursive(node->next);
     cout << node->val << " ";
+}
+
+// updating head
+void reverse(Node *&head, Node *cur)
+{
+    if (cur->next == NULL)
+    {
+        head = cur;
+        return;
+    }
+    reverse(head, cur->next);
+    cur->next->next = cur;
+    cur->next = NULL;
 }
 int main()
 {
