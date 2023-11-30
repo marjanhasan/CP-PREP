@@ -3,17 +3,11 @@ using namespace std;
 
 bool prime(int n)
 {
-    if (n < 2)
-        return false; // 0, 1 is not prime
-    if (n <= 3)
-        return true; // 2, 3 is prime
-    if (n % 2 == 0)
-        return false;                     //  no even int is prime except 2
-    for (int i = 3; i <= sqrt(n); i += 2) // starting from 3 to every odd value
-    {
+    if (n == 1 || n == 0)
+        return false;
+    for (int i = 2; i * i <= n; i++)
         if (n % i == 0)
             return false;
-    }
     return true;
 }
 
