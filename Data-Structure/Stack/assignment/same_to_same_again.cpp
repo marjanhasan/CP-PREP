@@ -136,8 +136,6 @@ int main()
     while (n--)
     {
         cin >> val;
-        if (val == -1)
-            break;
         st.push(val);
     }
 
@@ -145,8 +143,6 @@ int main()
     while (m--)
     {
         cin >> val;
-        if (val == -1)
-            break;
         q.push(val);
     }
     bool flag = false;
