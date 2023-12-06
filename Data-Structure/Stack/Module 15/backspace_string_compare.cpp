@@ -30,6 +30,29 @@ public:
         return st1 == st2;
     }
 };
+/*
+// another way
+
+class Solution {
+public:
+    bool backspaceCompare(string s, string t) {
+        stack<char> st;
+        for(char c:s)
+        {
+            if(c == '#' && !st.empty()) st.pop();
+            if(c != '#') st.push(c);
+        }
+        stack<char> tt;
+        for(char c:t)
+        {
+            if(c == '#' && !tt.empty()) tt.pop();
+            if(c != '#') tt.push(c);
+        }
+        return st == tt;
+    }
+};
+
+*/
 int main()
 {
 
