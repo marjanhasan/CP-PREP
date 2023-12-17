@@ -3,17 +3,17 @@ using namespace std;
 void insert_heap(vector<int> &v, int x)
 {
     v.push_back(x);
-    int cur_idx = v.size() - 1;
+    int cur = v.size() - 1;
 
-    while (cur_idx != 0)
+    while (cur != 0)
     {
         /* code */
-        int parent = (cur_idx - 1) / 2;
-        if (v[parent] > v[cur_idx])
-            swap(v[parent], v[cur_idx]);
+        int pr = (cur - 1) / 2;
+        if (v[pr] > v[cur])
+            swap(v[pr], v[cur]);
         else
             break;
-        cur_idx = parent;
+        cur = pr;
     }
 }
 
@@ -24,41 +24,40 @@ void delete_heap(vector<int> &v)
     int cur = 0;
     while (true)
     {
-        /* code */
-        int left_idx = cur * 2 + 1;
-        int right_idx = cur * 2 + 2;
-        int last_idx = v.size() - 1;
-        if (left_idx <= last_idx && right_idx <= last_idx)
+        int left = (cur * 2) + 1;
+        int right = (cur * 2) + 2;
+        int last = v.size() - 1;
+        if (left <= last && right <= last)
         {
-            if (v[left_idx] <= v[right_idx] && v[left_idx] < v[cur])
+            if (v[left] <= v[right] && v[left] < v[cur])
             {
-                swap(v[left_idx], v[cur]);
-                cur = left_idx;
+                swap(v[left], v[cur]);
+                cur = left;
             }
-            else if (v[right_idx] <= v[left_idx] && v[right_idx] < v[cur])
+            else if (v[right] <= v[left] && v[right] < v[cur])
             {
-                swap(v[right_idx], v[cur]);
-                cur = right_idx;
-            }
-            else
-                break;
-        }
-        else if (left_idx <= last_idx)
-        {
-            if (v[left_idx] < v[cur])
-            {
-                swap(v[left_idx], v[cur]);
-                cur = left_idx;
+                swap(v[right], v[cur]);
+                cur = right;
             }
             else
                 break;
         }
-        else if (right_idx <= last_idx)
+        else if (left <= last)
         {
-            if (v[right_idx] < v[cur])
+            if (v[left] < v[cur])
             {
-                swap(v[right_idx], v[cur]);
-                cur = right_idx;
+                swap(v[left], v[cur]);
+                cur = left;
+            }
+            else
+                break;
+        }
+        else if (right <= last)
+        {
+            if (v[right] < v[cur])
+            {
+                swap(v[right], v[cur]);
+                cur = right;
             }
             else
                 break;
