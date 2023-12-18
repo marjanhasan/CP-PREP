@@ -3,9 +3,9 @@ using namespace std;
 int main()
 {
     map<string, int> mp;
-    mp.insert({"sakib", 75});
+    mp.insert({"sakib", 75}); // type 1
     cout << mp["sakib"] << endl;
-    // most practice way to insert
+    // most practice way to insert type 2
     mp["rakib"] = 17;                                // O(logN)
     for (auto it = mp.begin(); it != mp.end(); it++) // O(NlogN)
     {

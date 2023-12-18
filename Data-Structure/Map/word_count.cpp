@@ -12,7 +12,8 @@ int main()
         mp[word]++;
     }
     for (auto it = mp.begin(); it != mp.end(); it++)
-        cout << it->first << " " << it->second << endl;
+        cout << it->first << " " << it->second << endl; // looping kre
+    cout << mp["phero"];                                // loop chara
 
     return 0;
 }
