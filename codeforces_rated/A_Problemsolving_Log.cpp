@@ -10,19 +10,16 @@ int main()
         cin >> n;
         string s;
         cin >> s;
-        int cnt = 0;
-        for (int i = 0; i < s.size() - 1; i++)
+        int cnt[26] = {0};
+        for (char c : s)
+            cnt[c - 'A']++;
+        int ans = 0;
+        for (int i = 0; i < 26; i++)
         {
-            int val = (s[i] - 'A') + 1;
-            if (val < n)
-                n -= val;
-            else
-                continue;
-            if (n <= 0)
-                break;
-            cnt++;
+            if (cnt[i] > i)
+                ans++;
         }
-        cout << cnt << endl;
+        cout << ans << endl;
     }
 
     return 0;
