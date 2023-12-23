@@ -8,14 +8,16 @@ int main()
     cin >> t;
     while (t--)
     {
-        int n;
-        cin >> n;
-        if ((n % 4 == 0) || (n % 4 == 3) || (n % 3 == 0) || (n % 3 == 4) || ((n % 4) % 3 == 0) || ((n % 3) % 4 == 0))
+        int a;
+        cin >> a;
+        if (a == 1 || a == 2 || a == 5)
         {
-            cout << "YES\n";
+            cout << "NO" << endl;
         }
         else
-            cout << "NO\n";
+        {
+            cout << "YES" << endl;
+        }
     }
     return 0;
 }
