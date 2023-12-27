@@ -9,25 +9,18 @@ int main()
         int n;
         cin >> n;
         int a[n];
-        int mx = INT_MIN, idx;
+        int mx = INT_MIN, cnt = 0;
         for (int i = 0; i < n; i++)
         {
             cin >> a[i];
             if (a[i] > mx)
             {
                 mx = a[i];
-                idx = i;
             }
+            else
+                cnt++;
         }
-        /* int cnt = 0;
-        for (int i = 0; i < n - 1; i++)
-        {
-            if(a[i]==mx)
-            {
-
-            }
-        } */
-        cout << (n - idx - 1) << endl;
+        cout << cnt << endl;
     }
 
     return 0;
