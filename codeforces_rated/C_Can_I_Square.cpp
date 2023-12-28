@@ -12,18 +12,18 @@ int main()
     {
         int n;
         cin >> n;
-        int a[n];
-        int sum = 0;
+        long long int a[n];
+        long long int sum = 0;
         for (int i = 0; i < n; i++)
         {
             cin >> a[i];
             sum += a[i];
         }
-        int r = sqrt(sum);
-        if (r * r != sum)
-            cout << "NO" << nl;
-        else
+        long long int r = sqrt(sum);
+        if (r * r == sum)
             cout << "YES" << nl;
+        else
+            cout << "NO" << nl;
     }
     return 0;
 }
