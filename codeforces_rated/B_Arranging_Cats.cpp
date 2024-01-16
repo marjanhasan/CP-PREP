@@ -16,22 +16,16 @@ int main()
         cin >> n;
         string s, f;
         cin >> s >> f;
-        int ache, lagbe, no;
-        ache = lagbe = no = 0;
+        int up, down;
+        up = down = 0;
         for (int i = 0; i < n; i++)
         {
-            if (s[i] == '1')
-                ache++;
-            if (s[i] != f[i])
-            {
-                if (f[i] == '1')
-                    lagbe++;
-            }
+            if (s[i] == '1' && f[i] == '0')
+                up++;
+            if (s[i] == '0' && f[i] == '1')
+                down++;
         }
-        if (lagbe == 0)
-            cout << lagbe << nl;
-        else
-            cout << max(ache, lagbe) << nl;
+        cout << max(up, down) << nl;
     }
     return 0;
 }
