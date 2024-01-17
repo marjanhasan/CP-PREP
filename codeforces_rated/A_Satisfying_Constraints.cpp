@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
-const ll INF = 0xFFFFFFFFFFFFFFFLL;
 #define nl '\n'
 int main()
 {
@@ -9,35 +8,30 @@ int main()
     cin.tie(0);
     cout.tie(0);
 
-    ll t;
+    int t;
     cin >> t;
     while (t--)
     {
-        ll n;
+        int n;
         cin >> n;
-        ll a1, a2;
-        a1 = -INF;
-        a2 = INF;
-        vector<ll> a3;
+        int mx = INT_MIN;
+        int mn = INT_MAX;
+        vector<int> v;
         while (n--)
         {
-            ll a, k;
-            cin >> a >> k;
+            int a, x;
+            cin >> a >> x;
             if (a == 1)
-                a1 = max(a1, k);
+                mx = max(mx, x);
             else if (a == 2)
-                a2 = min(a2, k);
-            else if (a == 3)
-                a3.push_back(k);
+                mn = min(mn, x);
+            else
+                v.push_back(x);
         }
-        ll cnt = 0;
-        if (a1 < a2)
-        {
-            cnt = a2 - a1 + 1;
-            for (ll x : a3)
-                cnt -= (x >= a1 && x <= a2);
-        }
-        cout << cnt << nl;
+        int cnt = (mn - mx) + 1;
+        for (int d : v)
+            cnt -= (mx <= d && mn >= d);
+        cnt < 0 ? cout << 0 << nl : cout << cnt << nl;
     }
     return 0;
 }
