@@ -30,15 +30,17 @@ int gcd(int a, int b)
 
 int main()
 {
+    // for two number using built in function
     int num1, num2;
     cin >> num1 >> num2;
+    cout << __gcd(num1, num2) << endl;
 
-    while (num2)
-    {
-        num1 %= num2;
-        swap(num1, num2);
-    }
-    cout << num1;
+    // for more than one number
+    vector<int> num = {12, 15, 18, 21, 24};
+    int ans = 0;
+    for (int i = 0; i < num.size(); i++)
+        ans = __gcd(ans, num[i]);
+    cout << ans << endl;
 
     return 0;
 }
