@@ -14,7 +14,7 @@ int main()
     int a, b;
     cin >> a >> b;
     int rgcd = gcd(a, b);
-    int rlcm = lcm(a, b);
+    int rlcm = a / gcd(a, b) * b;
     cout << rgcd << " " << rlcm << endl;
     return 0;
 }
