@@ -5,11 +5,9 @@ using namespace std;
 
 vector<int> v[1005];
 bool vis[1005];
-int cnt = 0;
 
 void dfs(int src)
 {
-    cnt++;
     vis[src] = true;
     for (int c : v[src])
     {
@@ -33,10 +31,16 @@ int main()
         v[a].push_back(b);
         v[b].push_back(a);
     }
-    int node;
-    cin >> node;
     memset(vis, false, sizeof(vis));
-    dfs(node);
+    int cnt = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (!vis[i])
+        {
+            dfs(i);
+            cnt++;
+        }
+    }
     cout << cnt;
     return 0;
 }
