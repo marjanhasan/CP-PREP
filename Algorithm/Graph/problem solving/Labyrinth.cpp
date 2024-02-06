@@ -32,7 +32,6 @@ void bfs(int si, int sj)
                 q.push({ci, cj});
                 vis[ci][cj] = true;
                 dis[ci][cj] = dis[pi][pj] + 1;
-                // cout << pi << " " << pj << nl;
                 par[ci][cj] = {pi, pj};
             }
         }
@@ -96,9 +95,6 @@ int main()
     cout << "YES" << nl;
     cout << path.size() - 1 << nl;
     reverse(path.rbegin(), path.rend());
-    // cout << si << sj << endl;
-    /* for (auto p : path)
-        cout << p.first << p.second << nl; */
     int a = path.begin()->first;
     int b = path.begin()->second;
     for (auto it = path.begin() + 1; it != path.end(); it++)
@@ -118,6 +114,5 @@ int main()
         else if (di == 1 && dj == 0)
             cout << 'D';
     }
-    // cout << di << dj;
     return 0;
 }
