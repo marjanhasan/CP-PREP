@@ -2,16 +2,16 @@
 using namespace std;
 #define ll long long
 #define nl '\n'
-const int N = 1e5 + 5;
-vector<int> adj[N];
+#define pi pair<ll, ll>
+
+const ll N = 1e5 + 5;
+vector<ll> adj[N];
 bool vis[N];
-int dis[N];
-/* void bfs(int src)
+void dfs(int src)
 {
-    queue<int> q;
+    queue<ll> q;
     q.push(src);
     vis[src] = true;
-    dis[src] = 0;
     while (!q.empty())
     {
         int par = q.front();
@@ -22,18 +22,19 @@ int dis[N];
             {
                 q.push(child);
                 vis[child] = true;
-                dis[child] = dis[par] + 1;
             }
         }
     }
-} */
+}
 int main()
 {
     ios_base ::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
-    int n, m;
+
+    ll n, m;
     cin >> n >> m;
+
     while (m--)
     {
         int a, b;
@@ -42,20 +43,17 @@ int main()
         adj[b].push_back(a);
     }
     memset(vis, false, sizeof(vis));
-    memset(dis, -1, sizeof(dis));
-    vector<int> v;
-    int cnt = 0;
+    vector<ll> v;
     for (int i = 1; i <= n; i++)
     {
         if (!vis[i])
         {
-            bfs(i);
-            cnt++;
+            dfs(i);
             v.push_back(i);
         }
     }
-    cout << v.size() / 2 << nl;
+    cout << v.size() - 1 << nl;
     for (int i = 0; i < v.size() - 1; i++)
-        cout << i << " " << i + 1 << nl;
+        cout << v[i] << " " << v[i + 1] << nl;
     return 0;
 }
