@@ -15,33 +15,18 @@ int main()
     {
         int n;
         cin >> n;
-        int a[n];
+        vector<pii> v;
         for (int i = 0; i < n; i++)
-            cin >> a[i];
-        int i = 0, j = n - 1;
-        int ai = INT_MIN, aj = INT_MIN;
-        int x, y;
-        while (i < j)
         {
-            if (a[i] > ai)
-            {
-                ai = a[i];
-                x = i;
-            }
-            if (a[j] > aj)
-            {
-                aj = a[j];
-                y = j;
-            }
-            i++;
-            j--;
+            int x;
+            cin >> x;
+            v.push_back({x, i});
         }
-        if (a[j] > aj)
-        {
-            aj = a[j];
-            y = j;
-        }
-        cout << x << " " << y << nl;
+        sort(v.begin(), v.end());
+        if (v[n - 2].second > v[n - 1].second)
+            cout << v[n - 1].second << " " << v[n - 2].second << nl;
+        else
+            cout << v[n - 2].second << " " << v[n - 1].second << nl;
     }
     return 0;
 }
