@@ -15,5 +15,12 @@ int main()
         cout << (b - a) + 1;
     else
         cout << 0;
+    /*
+    // another way
+    int cnt = 0;
+    for (int i = a; i <= b; i++)
+        cnt++;
+    cout << cnt;
+    */
     return 0;
 }

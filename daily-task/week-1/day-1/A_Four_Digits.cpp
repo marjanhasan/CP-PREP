@@ -19,5 +19,34 @@ int main()
         cout << "00" << s;
     else
         cout << "000" << s;
+    /*
+    second way
+
+    int n;
+    cin >> n;
+    if (n < 10)
+        cout << "000" << n;
+    else if (n < 100)
+        cout << "00" << n;
+    else if (n < 1000)
+        cout << "0" << n;
+    else
+        cout << n;
+    */
+
+    /*
+    third way
+
+    int n;
+    cin >> n;
+    vector<int> v;
+    for (int i = 1; i <= 4; i++)
+    {
+        v.push_back(n % 10);
+        n = n / 10;
+    }
+    for (int i = v.size() - 1; i >= 0; i--)
+        cout << v[i];
+    */
     return 0;
 }
