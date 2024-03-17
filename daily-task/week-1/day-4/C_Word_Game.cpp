@@ -27,20 +27,19 @@ int main()
                 mp[s]++;
             }
         }
-        int cnt = 0, j = 0;
-        for (int i = 0; i < v.size(); i++)
+        int i = 0;
+        while (i < v.size())
         {
-            if (j == n)
+            int cnt = 0;
+            for (int j = 1; j <= n; j++)
             {
-                cout << cnt << " ";
-                j = 0;
-                cnt = 0;
+                if (mp[v[i]] == 1)
+                    cnt += 3;
+                else if (mp[v[i]] < 3)
+                    cnt++;
+                i++;
             }
-            if (mp[v[i]] == 1)
-                cnt += 3;
-            else if (mp[v[i]] < n)
-                cnt++;
-            j++;
+            cout << cnt << " ";
         }
         cout << nl;
     }
