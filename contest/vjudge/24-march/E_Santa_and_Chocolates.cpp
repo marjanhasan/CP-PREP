@@ -23,14 +23,12 @@ int main()
             cin >> a[i];
             sum += a[i];
         }
-        if (sum < k)
+        if (sum < n)
             cout << "NO" << nl;
-        else if (sum % n == 0)
-            cout << "YES" << nl;
-        else if (sum % k == 0)
-            cout << "YES" << nl;
+        else if (sum % n == 1 && k == 0)
+            cout << "NO" << nl;
         else
-            cout << "NO" << nl;
+            cout << "YES" << nl;
     }
     return 0;
 }

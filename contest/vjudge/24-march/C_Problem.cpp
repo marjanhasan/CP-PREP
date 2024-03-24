@@ -17,8 +17,44 @@ int main()
         int n, m;
         cin >> n >> m;
 
-        (n % m == 0) || (m % n == 0) ? cout << "YES" : cout << "NO";
+        /* if (n == m)
+            cout << "YES";
+        else if (n > m)
+        {
+            while (n > m)
+            {
+                n--;
+                m++;
+            }
+            if (n == m)
+                cout << "YES";
+            else
+                cout << "NO";
+        }
+        else
+        {
+            while (n < m)
+            {
+                n += 3;
+                m--;
+            }
+            while (n > m)
+            {
+                n--;
+                m++;
+            }
+            if (n == m)
+                cout << "YES";
+            else
+                cout << "NO";
+        }
+        cout << nl; */
+        if ((n - m) % 2 == 0)
+            cout << "YES";
+        else
+            cout << "NO";
         cout << nl;
+        //  i.e, (+1,-1)=2 and (-1,+3)=4 which are multiples of two
     }
     return 0;
 }
