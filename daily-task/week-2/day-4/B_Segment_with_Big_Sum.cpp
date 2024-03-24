@@ -1,3 +1,7 @@
+/*
+ * author: saifabrar
+ * created: 2024-03-24 23:46:55
+ */
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
@@ -11,33 +15,25 @@ int main()
 
     ll n, s;
     cin >> n >> s;
+
     vector<ll> a(n);
+
     for (int i = 0; i < n; i++)
         cin >> a[i];
 
-    ll l = 0, r = 0, ans = LONG_LONG_MAX, sum = 0, res = LONG_LONG_MIN;
+    ll l = 0, r = 0, ans = LONG_LONG_MAX, sum = 0;
 
     while (r < n)
     {
         sum += a[r];
-        if (sum <= s)
+        while (sum >= s)
         {
-            ans = (r - l + 1);
-        }
-        else
-        {
-            while (sum > s)
-            {
-                sum -= a[l];
-                l++;
-            }
-            if (sum <= s)
-            {
-                ans = (r - l + 1);
-            }
+            ans = min(ans, r - l + 1);
+            sum -= a[l];
+            l++;
         }
         r++;
     }
-    cout << ans;
+    ans == LONG_LONG_MAX ? cout << -1 : cout << ans;
     return 0;
 }
