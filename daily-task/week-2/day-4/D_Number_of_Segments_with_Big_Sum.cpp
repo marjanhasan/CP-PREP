@@ -1,6 +1,6 @@
 /*
  * author: saifabrar
- * created: 2024-03-25 00:50:06
+ * created: 2024-03-25 22:37:01
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -18,22 +18,19 @@ int main()
     vector<ll> a(n);
     for (int i = 0; i < n; i++)
         cin >> a[i];
-    ll l = 0, r = 0, cnt = 0, sum = 0;
+    ll l = 0, r = 0, cnt = 0, sum = 0, ans = 0;
     while (r < n)
     {
         sum += a[r];
-        if (sum >= s)
+        while (sum - a[l] >= s)
         {
-            while (l < r && sum >= s)
-            {
-                cnt++;
-                sum -= a[l];
-                l++;
-            }
+            sum -= a[l];
+            l++;
         }
-        else
-            r++;
+        if (sum >= s)
+            ans += (l + 1);
+        r++;
     }
-    cout << cnt;
+    cout << ans;
     return 0;
 }
