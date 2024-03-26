@@ -18,17 +18,24 @@ int main()
     vector<ll> a(n);
     for (int i = 0; i < n; i++)
         cin >> a[i];
-    ll l = 0, r = 0, cnt = 0, sum = 0, ans = 0;
+    ll l = 0, r = 0, sum = 0, ans = 0;
     while (r < n)
     {
         sum += a[r];
-        while (sum - a[l] >= s)
+        if (sum >= s)
+            ans += (r - l + 1);
+        while (sum >= s)
         {
             sum -= a[l];
             l++;
         }
-        if (sum >= s)
-            ans += (l + 1);
+        // while (sum - a[l] >= s)
+        // {
+        //     sum -= a[l];
+        //     l++;
+        // }
+        // if (sum >= s)
+        //     ans += (l + 1);
         r++;
     }
     cout << ans;
