@@ -31,13 +31,12 @@ int main()
         int fre[n + 1] = {0};
         for (int i = 0; i < n; i++)
             fre[a[i][0]]++;
-        int x, y;
+
+        int x;
         for (int i = 0; i < n; i++)
         {
             if (fre[a[i][0]] == n - 1)
                 x = a[i][0];
-            if (fre[a[i][0]] == 1)
-                y = a[i][0];
         }
         cout << x << " ";
         for (int i = 0; i < n; i++)
