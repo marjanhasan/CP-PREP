@@ -1,7 +1,7 @@
 /*
- * author: saifabrar
+ * author: marjanhasan
  * created: 2024-03-30 23:18:44
- * problem link:
+ * problem link: https://codeforces.com/problemset/problem/1800/C1
  */
 #include <bits/stdc++.h>
 using namespace std;
