@@ -1,7 +1,7 @@
 /*
  * author: saifabrar
  * created: 2024-04-01 17:32:56
- * problem link:
+ * problem link: https://codeforces.com/problemset/problem/1790/D
  */
 #include <bits/stdc++.h>
 using namespace std;
