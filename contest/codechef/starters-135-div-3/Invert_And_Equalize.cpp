@@ -13,56 +13,25 @@ void solve()
 {
     int n;
     cin >> n;
-    vector<char> s(n);
-    int one=0,zero=0;
-    for(int i=0;i<n;i++)
+    string s;
+    cin >> s;
+    int i = 0, one = 0, zero = 0;
+    while(i < n)
     {
-        cin >> s[i];
-        if(s[i]== '1') one++;
-        if(s[i]== '0') zero++;
-    }
-    if(one == n || zero == n)
-    {
-        cout << 0 << nl;
-        return;
-    }
-    if(one == zero)
-    {
-        cout << 1 << nl;
-        return;
-    }
-    int cnt = 0;
-    if(one < zero)
-    {
-        int i = 0;
-        while( i < n)
+        if(s[i]== '1')
         {
-            if(s[i]=='0')
-            {
+            one++;
+            while(s[i] == '1')
                 i++;
-                continue;
-            }
-            while(s[i]== '1' && i < n)
+        }
+        else
+        {
+            zero++;
+            while(s[i]=='0')
                 i++;
-            cnt++;
         }
     }
-    else
-    {
-        int i = 0;
-        while( i < n)
-        {
-            if(s[i]=='1')
-            {
-                i++;
-                continue;
-            }
-            while(s[i]== '0' && i < n)
-                i++;
-            cnt++;
-        }
-    }
-    cout << cnt << nl;
+    cout << min(one, zero) << nl;
 }
 int main()
 {
