@@ -19,5 +19,6 @@ int main()
     int n;
     cin >> n;
     cout << 4 + ((n-1) * 3);
+    // cout << n * 3 + 1; in another way
     return 0;
 }
