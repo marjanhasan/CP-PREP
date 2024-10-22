@@ -30,18 +30,13 @@ int main()
     int n;
     cin >> n;
     vector<int> v(n);
-    unordered_map<int, int> mp;
+    ll target = (ll)n * (n + 1) / 2;
+    ll sum = 0;
     for (int i = 0; i < n; i++) {
       cin >> v[i];
-      mp[v[i]]++;
+      sum += v[i];
     }
-
-    for (int i = 1; i <= n; i++) {
-      if (!mp[i]) {
-        pnl(i);
-        break;
-      }
-    }
+    pnl(target - sum);
     return 0;
 }
 
@@ -59,16 +54,16 @@ int main()
 */
 
 /*
-    for (int i = 1; i <= n; i++) {
-      mp[i] = 0;
-    }
+    unordered_map<int, int> mp;
     for (int i = 0; i < n; i++) {
       cin >> v[i];
-      mp[v[i]] = 1;
+      mp[v[i]]++;
     }
-    for (auto [key, val] : mp) {
-      if (val == 0) {
-        pnl(key);
+
+    for (int i = 1; i <= n; i++) {
+      if (!mp[i]) {
+        pnl(i);
+        break;
       }
     }
 */
